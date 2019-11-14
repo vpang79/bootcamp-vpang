@@ -1,5 +1,5 @@
-module Luhn
-  def self.is_valid?(number)
+class Luhn
+  def is_valid?(number)
     @odd_array = []
     @even_array = []
     @rev_array = number.digits
@@ -25,4 +25,6 @@ module Luhn
     end
   end
 
-
+test = Luhn.new
+answer = test.is_valid?(4194560385008504)
+print "#{answer}\n"
