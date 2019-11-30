@@ -1,8 +1,15 @@
 def recursive_fib(digit)
-
-# fib(n) = fib(n-1) + fib(n-2)
+  if digit == 0
+  return "Not a valid number"
+  elsif digit == 1
+    return 0
+  elsif digit == 2
+    return 1
+  end
+  
+  return recursive_fib(digit-1) + recursive_fib(digit-2)
 end
-
+      
 
 def iterative_fib(digit)
   x = 0
@@ -23,16 +30,14 @@ def iterative_fib(digit)
     end
     return x
   end
-
 end
 
-puts iterative_fib(10)
 
-# require 'benchmark'
+require 'benchmark'
 
-# num = 35
+num = 35
 
-# Benchmark.bm do |x|
-#   x.report("recursive_fib") { recursive_fib(num) }
-#   x.report("iterative_fib") { iterative_fib(num) }
-# end
+Benchmark.bm do |x|
+  x.report("recursive_fib") { recursive_fib(num) }
+  x.report("iterative_fib") { iterative_fib(num) }
+end
